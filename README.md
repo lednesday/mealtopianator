@@ -10,5 +10,5 @@
 ## Contributors
 ***The Plantaculaganzic Mealtopianator*** is created and maintained by Chris Jones and Lindsay Jones Marean. 
 
-## Known Bugs and Future Improvements
+## Known Bugs and Future Enhancements
 ***The Plantaculaganzic Mealtopianator*** has not been implemented. Future versions will have features.
