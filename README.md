@@ -8,7 +8,7 @@
 ***The Plantaculaganzic Mealtopianator*** is a distributed online app with a frontend user interface built with HTML, CSS, and Typescript using the JQuery library. The backend consists of a NodeJS server and a NoSQL database to manage and store user and meal itinerary information. 
 
 ## Contributors
-***The Plantaculaganzic Mealtopianator*** is created and maintained by Chris Jones and Lindsay Jones Marean. 
+***The Plantaculaganzic Mealtopianator*** is developed and maintained by Chris Jones and Lindsay Jones Marean. 
 
 ## Known Bugs and Future Enhancements
 ***The Plantaculaganzic Mealtopianator*** has not been implemented. Future versions will have features.
