@@ -11,4 +11,4 @@
 ***The Plantaculaganzic Mealtopianator*** is created and maintained by Chris Jones and Lindsay Jones Marean. 
 
 ## Known Bugs and Future Improvements
-***The Plantaculaganzic Mealtopianator*** has not been implemented. Future improvements will entail functionality.
+***The Plantaculaganzic Mealtopianator*** has not been implemented. Future versions will have features.
