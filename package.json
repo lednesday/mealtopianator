@@ -3,12 +3,12 @@
 	"author": ["Lindsay Marean <lmarean@bensay.org>", "Chris Jones <chris@cjones.org"],
 	"version": "1.0.0",
 	"description": "group shared meal planning tool",
-	"repository": "https://github.com/lednesday/mealtopianator",
 	"private": true,
 	"dependencies": {
 	}, 
 	"devDependencies": {
 	},
+	"repository": "https://github.com/lednesday/mealtopianator",
 	"engines": {
 	},
 	"browserslist": []
