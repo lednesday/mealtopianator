@@ -19,13 +19,17 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Set up your `.env.local`.
+- Set `GITHUB_ID` and `GITHUB_SECRET` by creating a new OAuth app at [GitHub](https://github.com/settings/developers).
+    - Use `http://localhost:3000/` for the Homepage URL.
+    - Use `http://localhost:3000/api/auth/callback/github` for the callback.
+- Set `NEXTAUTH_URL` to `http://localhost:3000/`.
+
+Then run the development server:
 
 ```bash
 . .env.local
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
