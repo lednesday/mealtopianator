@@ -5,10 +5,10 @@ export default function Post() {
     return (
         <>
             <Head>
-                <title>New Account</title>
+                <title>Meal Choice</title>
             </Head>
 
-            <h1 className="main">New Account</h1>
+            <h1 className="main">Meal Choice</h1>
         </>
     )
 }
