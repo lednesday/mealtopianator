@@ -113,6 +113,14 @@
   margin-left: 0.5rem;
 }
 
+.loginStatus {
+  padding: 1rem 1 rem;
+  display: absolute;
+  justify-content: center;
+  align-items: center;
+  background: yellow;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

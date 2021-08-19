@@ -8,17 +8,12 @@ import { signIn, signOut, useSession } from 'next-auth/client'
 
 export default function Home() {
   const [session, loading] = useSession()
+  if (session && session.user && session.user.name) {
+    console.log("session:", session);
+  }
 
   return (
     <div className={styles.container}>
-      {!session && <>
-        Not signed in <br />
-        <button onClick={() => signIn()}>Sign in</button>
-      </>}
-      {session && <>
-        Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </>}
 
       <Head>
         <title>mealtopianator</title>
@@ -27,6 +22,18 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        <div className={styles.loginStatus}>
+          {!session && <>
+            Not signed in <br />
+            <button onClick={() => signIn()}>Sign in</button>
+          </>}
+          {session && session.user && session.user.name && <>
+            Signed in as {session.user.name} {`   `}
+            <image>href={session.user.image}</image> {`   `}
+            <button onClick={() => signOut()}>Sign out</button>
+          </>}
+        </div>
+
         <h1 className={styles.title}>
           This . is . the . MEALTOPIANATOR!!!
         </h1>
