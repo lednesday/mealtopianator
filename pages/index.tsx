@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { getOrCreateConnection } from '../utils'
@@ -29,19 +30,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <div className={styles.loginStatus}>
-          {!session && <>
-            Not signed in <br />
-            <button onClick={() => signIn()}>Sign in</button>
-          </>}
-          {session && session.user && session.user.name && <>
-            Signed in as {session.user.name} {`   `}
-            <image>href={session.user.image}</image> {`   `}
-            <button onClick={() => signOut()}>Sign out</button>
-          </>}
-        </div>
+      <div className={styles.login}>
+        {!session && <>
+          Not signed in
+          <button onClick={() => signIn()}>Sign in</button>
+        </>}
+        {session && session.user && session.user.name && session.user.image && <>
+          Signed in as {`   `}
+          <span className={styles.avatarwrapper}>
+            <Image className={styles.avatar} height="40" width="40" src={session.user.image} alt="avatar" />
+          </span> {`   `}
+          {session.user.name} {`   `}
+          <button onClick={() => signOut()}>Sign out</button>
+        </>}
+      </div>
 
+      <main className={styles.main}>
         <h1 className={styles.title}>
           This . is . the . MEALTOPIANATOR!!!
         </h1>
