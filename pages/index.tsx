@@ -3,9 +3,19 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { signIn, signOut, useSession } from 'next-auth/client'
+import prisma from '../lib/prisma'
+import { GetServerSideProps } from 'next'
 
-
-
+export const getServerSideProps: GetServerSideProps = async () => {
+  const meals = await prisma.mealPlan.findMany({
+    include: {
+      owner: {
+        select: { name: true },
+      },
+    },
+  });
+  return { props: { meals: meals } };
+};
 
 export default function Home() {
   const [session, loading] = useSession()
