@@ -3,17 +3,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { signIn, signOut, useSession } from 'next-auth/client'
-import { getOrCreateConnection } from '../utils'
-import { MealPlan } from '../models/mealplan.model'
 
-export async function getServerSideProps() {
-  const conn = await getOrCreateConnection();
-  // const mpRepo = conn.getRepository<MealPlan>(MealPlan);
 
-  return {
-    props: {}
-  };
-}
+
 
 export default function Home() {
   const [session, loading] = useSession()
