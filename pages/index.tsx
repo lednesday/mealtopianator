@@ -3,17 +3,19 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { signIn, signOut, useSession } from 'next-auth/client'
-import { getOrCreateConnection } from '../utils'
-import { MealPlan } from '../models/mealplan.model'
+import prisma from '../lib/prisma'
+import { GetServerSideProps } from 'next'
 
-export async function getServerSideProps() {
-  const conn = await getOrCreateConnection();
-  // const mpRepo = conn.getRepository<MealPlan>(MealPlan);
-
-  return {
-    props: {}
-  };
-}
+export const getServerSideProps: GetServerSideProps = async () => {
+  const meals = await prisma.mealPlan.findMany({
+    include: {
+      owner: {
+        select: { name: true },
+      },
+    },
+  });
+  return { props: { meals: meals } };
+};
 
 export default function Home() {
   const [session, loading] = useSession()
