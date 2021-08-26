@@ -1,3 +1,12 @@
+/* palette */
+/*
+background: deep-champagne: #fbce9dff;
+alternative background: laurel-green: #b1b695ff;
+dividers: rose-ebony: #654c4fff;
+buttons: star-command-blue: #aad6ee;
+text: phthalo-green: #14281dff;
+*/
+
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -6,6 +15,8 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: #14281dff;
+  background: #fbce9dff
 }
 
 .main {
@@ -24,6 +35,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #b1b695ff;
+  border-radius: 10px;
 }
 
 .footer a {
@@ -34,7 +47,7 @@
 }
 
 .title a {
-  color: #0070f3;
+  color: #654c4fff;
   text-decoration: none;
 }
 
@@ -85,23 +98,23 @@
 }
 
 .login {
-  border-radius: 10%;
   position: absolute;
   top: 3%;
-  left: 3%;
+  right: 3%;
   padding: 1rem 1rem;
-  background: yellow;
-}
-
-.avatarwrapper {
-  position: relative;
-  height: 40px;
-  width: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .avatar {
-  text-align: center;
+  height: 40px;
+  width: 40px;
   border-radius: 30%;
+}
+
+.container button {
+  background: #aad6ee;
+  border-radius: 5px;
 }
 
 @media (max-width: 600px) {

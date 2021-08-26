@@ -27,7 +27,10 @@ export default function Home() {
       <Head>
         <title>mealtopianator</title>
         <meta name="description" content="Group meal planning tool" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
       <div className={styles.login}>
@@ -36,11 +39,9 @@ export default function Home() {
           <button onClick={() => signIn()}>Sign in</button>
         </>}
         {session && session.user && session.user.name && session.user.image && <>
-          Signed in as {`   `}
-          <span className={styles.avatarwrapper}>
-            <Image className={styles.avatar} height="40" width="40" src={session.user.image} alt="avatar" />
-          </span> {`   `}
-          {session.user.name} {`   `}
+          Signed in as &nbsp;
+          <Image className={styles.avatar} height="40" width="40" src={session.user.image} alt="avatar" />
+          &nbsp; {session.user.name} &nbsp;
           <button onClick={() => signOut()}>Sign out</button>
         </>}
       </div>
