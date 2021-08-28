@@ -19,8 +19,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-1. Install PostgreSQL (`brew install postgres`) and start it (`brew services start postgresql`). If you've already started
-    PostgreSQL before, use `brew services restart postresql`.
+1. Install PostgreSQL
+    1. `brew install postgres`
+    1. Start it. `brew services start postgresql` or `brew services restart postresql`.
+    1. Create the database.
+        1. `psql template1`
+        1. `create user mealtopianator with password '${PASSWORD}';`. Substitute `${PASSWORD}` with a nice password.
+        1. `create database mealtopianator with owner mealtopianator;`.
 1. Set up your `.env`.
     - Set `GITHUB_ID` and `GITHUB_SECRET` by creating a new OAuth app at [GitHub](https://github.com/settings/developers).
         - Use `http://localhost:3000/` for the Homepage URL.
@@ -29,6 +34,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
     - Set `DATABASE_PASSWORD` to the password for the mealtopianator user in the database.
     - Set `DATABASE_URL` to `postgresql://mealtopianator:${DATABASE_PASSWORD}@localhost:5432/mealtopianator?schema=public`,
         substituting the password.
+1. Install the schema into the database: `npx prisma db push`.
 1. Run the development server:
     ```bash
     npm run dev
