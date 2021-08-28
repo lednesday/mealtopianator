@@ -25,7 +25,7 @@ Set up your `.env.local`.
     - Use `http://localhost:3000/api/auth/callback/github` for the callback.
 - Set `NEXTAUTH_URL` to `http://localhost:3000/`.
 
-Install PostgreSQL (`brew install postgres`) and start it (`brew services start postgresql`). If you've already started PostgreSQL before, use `brew services restart postresql`.
+Install PostgreSQL (`brew install postgres`) and start it (`brew services start postgresql`). If you've already started PostgreSQL before, use `brew services restart postgresql`.
 
 Then run the development server:
 
