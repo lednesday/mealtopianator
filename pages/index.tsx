@@ -37,7 +37,7 @@ export default function Home() {
 
       <div className={styles.login}>
         {!session && <>
-          Not signed in
+          Not signed in &nbsp;
           <button onClick={() => signIn()}>Sign in</button>
         </>}
         {session && session.user && session.user.name && session.user.image && <>
