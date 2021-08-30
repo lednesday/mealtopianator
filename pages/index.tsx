@@ -49,22 +49,21 @@ export default function Home() {
       </div>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          This . is . the . MEALTOPIANATOR!!!
-        </h1>
-        <p className={styles.description}>
-          You will start by
+        {!session && <>
+          <h1 className={styles.title}>
+            This . is . the . MEALTOPIANATOR!!!
+          </h1>
+          <p className={styles.description}>
+            Sign in above to create a meal.
+          </p>
+        </>}
+        {session && <>
           <span>
-            <Link href={`/new-account`}>
-              <a> creating an account</a>
+            <Link href={`/meal-choice`} passHref>
+              <button>Create a meal</button>
             </Link>
-          </span> or
-          <span>
-            <Link href={`/login`}>
-              <a> logging in</a>
-            </Link>
-          </span>.
-        </p>
+          </span>
+        </>}
       </main>
 
       <footer className={styles.footer}>
