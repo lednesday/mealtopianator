@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import prisma from '../lib/prisma'
 import { GetServerSideProps } from 'next'
+import Lister from '../components/Lister/Lister'
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const meals = await prisma.mealPlan.findMany({
@@ -58,11 +59,11 @@ export default function Home() {
           </p>
         </>}
         {session && <>
-          <span>
-            <Link href={`/meal-choice`} passHref>
-              <button>Create a meal</button>
-            </Link>
-          </span>
+          <Link href={`/meal-choice`} passHref>
+            <button>Create a meal</button>
+          </Link>
+          <p>Your existing meals: </p>
+          {/* <Lister itemArray={}/> */}
         </>}
       </main>
 
