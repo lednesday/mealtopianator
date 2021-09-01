@@ -6,8 +6,9 @@ import { signIn, signOut, useSession } from 'next-auth/client'
 import prisma from '../lib/prisma'
 import { GetServerSideProps } from 'next'
 import Lister from '../components/Lister/Lister'
+import { MealPlan } from '.prisma/client'
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (_context) => {
   const meals = await prisma.mealPlan.findMany({
     include: {
       owner: {
@@ -18,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return { props: { meals: meals } };
 };
 
-export default function Home() {
+export default function Home(props: { meals: MealPlan[] }) {
   const [session, loading] = useSession()
   if (session && session.user && session.user.name) {
     console.log("session:", session);
@@ -63,7 +64,7 @@ export default function Home() {
             <button>Create a meal</button>
           </Link>
           <p>Your existing meals: </p>
-          {/* <Lister itemArray={}/> */}
+          { <Lister itemArray={props.meals}/> }
         </>}
       </main>
 
