@@ -60,7 +60,7 @@ export default function Home(props: { mealplans: MealPlan[] }) {
           </p>
         </>}
         {session && <>
-          <Link href={`/meal-choice`} passHref>
+          <Link href={`/create-mealplan`} passHref>
             <button>Create a mealplan</button>
           </Link>
           <p>Your existing mealplans: </p>
