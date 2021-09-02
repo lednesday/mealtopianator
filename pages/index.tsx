@@ -9,17 +9,17 @@ import Lister from '../components/Lister/Lister'
 import { MealPlan } from '.prisma/client'
 
 export const getServerSideProps: GetServerSideProps = async (_context) => {
-  const meals = await prisma.mealPlan.findMany({
+  const mealplans = await prisma.mealPlan.findMany({
     include: {
       owner: {
         select: { name: true },
       },
     },
   });
-  return { props: { meals: meals } };
+  return { props: { mealplans: mealplans } };
 };
 
-export default function Home(props: { meals: MealPlan[] }) {
+export default function Home(props: { mealplans: MealPlan[] }) {
   const [session, loading] = useSession()
   if (session && session.user && session.user.name) {
     console.log("session:", session);
@@ -61,10 +61,10 @@ export default function Home(props: { meals: MealPlan[] }) {
         </>}
         {session && <>
           <Link href={`/meal-choice`} passHref>
-            <button>Create a meal</button>
+            <button>Create a mealplan</button>
           </Link>
-          <p>Your existing meals: </p>
-          { <Lister itemArray={props.meals}/> }
+          <p>Your existing mealplans: </p>
+          {<Lister itemArray={props.meals} />}
         </>}
       </main>
 
