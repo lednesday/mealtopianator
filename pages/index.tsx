@@ -93,11 +93,10 @@ export default function Home(props: { mealplans: MealPlan[] }) {
             {<Lister itemArray={props.mealplans} />}
           </>
         )}
+        <footer className={styles.footer}>
+          <a>by Chris Jones and Lindsay Marean</a>
+        </footer>
       </main>
-
-      <footer className={styles.footer}>
-        <a>by Chris Jones and Lindsay Marean</a>
-      </footer>
     </div>
   );
 }

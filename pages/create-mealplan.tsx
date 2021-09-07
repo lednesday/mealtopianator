@@ -39,21 +39,18 @@ function CreateMealplanForm() {
     const createMealplan = async (event: SyntheticEvent<HTMLButtonElement>) => {
         event.preventDefault();
 
-        const result = await fetch(
-            '/api/createplan',
-            {
-                body: JSON.stringify(
-                    {
-                        name: event.target.name.value,
-                        description: event.target.description.value
-                    }
-                ),
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                method: 'POST'
-            }
-        )
+        const result = await fetch("/api/createplan", {
+          body: JSON.stringify({
+            name: event.target.name.value,
+            description: event.target.description.value,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+        }).catch((error) => {
+          console.error("Error:", error);
+        });
 
         const resultJSON = await result.json();
         // result is an object like result.planName => "Jingleheimer-Schmitt Family Reunion"
