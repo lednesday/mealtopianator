@@ -54,7 +54,7 @@ function CreateMealplanForm() {
 
         const resultJSON = await result.json();
         // result is an object like result.planName => "Jingleheimer-Schmitt Family Reunion"
-        console.log("mealplan description: ", result.description)
+        console.log("mealplan description: ", result.description);
 
         event.target.reset();
     }
