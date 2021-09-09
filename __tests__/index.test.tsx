@@ -7,6 +7,7 @@ import { render, screen } from "@testing-library/react";
 import Home from "../pages/index";
 import { MealPlan } from ".prisma/client";
 import { useSession } from "next-auth/client";
+import { Session } from "next-auth";
 
 jest.mock("next-auth/client");
 
@@ -16,8 +17,7 @@ describe("Home", () => {
   const argZero: MealPlan[] = [];
   const argOne: MealPlan[] = [mealplanOne];
   const argTwo: MealPlan[] = [mealplanOne, mealplanTwo];
-  // TODO: what is the type of a session?
-  const sessionMock = {
+  const sessionMock: Session = {
     user: {
       email: null,
       image: "http://www.bensay.org/gallery/v/grandcanyon/toppicks/1711.JPG",
@@ -61,6 +61,7 @@ describe("Home", () => {
     render(<Home mealplans={argTwo} />);
     expect(screen.getByText("Knife Fork of the Spoon River"));
     expect(screen.getByText("peaceful family campout"));
+    expect(screen.queryByText("no such thing") === null);
   });
 
 });
