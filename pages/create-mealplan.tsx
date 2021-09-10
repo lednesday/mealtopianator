@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import React, { SyntheticEvent } from 'react'
+import React, { FormEvent, SyntheticEvent } from 'react'
 
 export default function CreatePlan() {
     return (
@@ -36,19 +36,27 @@ export default function CreatePlan() {
 
 function CreateMealplanForm() {
     // using this guide: https://nextjs.org/blog/forms
-    const createMealplan = async (event: SyntheticEvent<HTMLButtonElement>) => {
+    const createMealplan = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        // type assertion so we can easily reference the fields of the form submit event.
+        type form = {
+            name: { value: string },
+            description: { value: string },
+        };
+        const target = event.target as typeof event.target & form;
 
         const result = await fetch("/api/createplan", {
           body: JSON.stringify({
-            name: event.target.name.value,
-            description: event.target.description.value,
+            name: target.name.value,
+            description: target.description.value,
           }),
           headers: {
             "Content-Type": "application/json",
           },
           method: "POST",
         }).catch((error) => {
+          // TODO real error handling
           console.error("Error:", error);
         });
 
