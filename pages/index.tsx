@@ -90,7 +90,7 @@ export default function Home(props: { mealplans: MealPlan[] }) {
               <button>Create a mealplan</button>
             </Link>
             <p>Your existing mealplans: </p>
-            {<Lister itemArray={props.mealplans} />}
+            {<Lister itemArray={props.mealplans} pluralNoun="meal plans" />}
           </>
         )}
         <footer className={styles.footer}>

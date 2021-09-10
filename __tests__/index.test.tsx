@@ -50,10 +50,17 @@ describe("Home", () => {
     expect(screen.getByText("Signed in as testuser"));
   });
 
+  it("displays no mealplans", () => {
+    (useSession as jest.Mock).mockReturnValueOnce([sessionMock, false]);
+    render(<Home mealplans={argZero} />);
+    expect(screen.getByRole("empty-list")).toHaveTextContent(/ no /i);
+  })
+
   it("displays one mealplan", () => {
     (useSession as jest.Mock).mockReturnValueOnce([sessionMock, false,]);
     render(<Home mealplans={argOne} />);
     expect(screen.getByText("Knife Fork of the Spoon River"));
+    expect(screen.queryByRole("empty-list")) === null;
   });
 
   it("displays two mealplans", () => {

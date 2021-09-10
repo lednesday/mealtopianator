@@ -4,9 +4,9 @@ type Listable = {
 };
 
 // displays items in an array, by item.name with item.id as key
-export default function Lister<T extends Listable>(itemArrayObj: {itemArray: T[]}) {
-    var itemArray = itemArrayObj.itemArray;
-    if (typeof (itemArray) !== "undefined" && itemArray.length && itemArray[0].id && itemArray[0].name) {
+export default function Lister<T extends Listable>(itemArrayObj: {itemArray: T[], pluralNoun?: string}) {
+    var {itemArray, pluralNoun} = itemArrayObj;
+    if (itemArray.length) {
         const items = itemArray.map((item: any) =>
             <li key={item.id}>{item.name}</li>);
         return (
@@ -15,5 +15,8 @@ export default function Lister<T extends Listable>(itemArrayObj: {itemArray: T[]
             </ul >
         );
     }
-    else return (<ul></ul>)
+    else {
+        const nounStr = pluralNoun ? pluralNoun : "items";
+        return (<ul role="empty-list"><li>You have no {nounStr} saved.</li></ul>);
+    }
 };
